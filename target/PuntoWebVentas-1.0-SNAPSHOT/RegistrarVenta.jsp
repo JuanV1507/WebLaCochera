@@ -221,15 +221,19 @@
             //PAGO CON STRIPE
             // clave pública de Stripe
             var stripe = Stripe("pk_test_51Qnae6RFM3OuQco0QRHMHcFCxehfjCjX1DPFDZ9YXzzC14OvtVPGzGFQPgomjwq6ZQPfyjnN1YUOnIGZe4yzZ7UV00kKritgXf");
-            var elements = stripe.elements();
-            var card = elements.create("card");
-            card.mount("#card-element");
+            var elements = stripe.elements();//Crea una instancia de los Elementos de Stripe
+            var card = elements.create("card");// Crea un campo de entrada para el número de la tarjeta de crédito
+            card.mount("#card-element");//Monta el campo de tarjeta en el elemento HTML
 
-            var form = document.getElementById("payment-form");
+            var form = document.getElementById("payment-form");// Obtiene una referencia al formulario HTML
+            //Evento del boton
             form.addEventListener("submit", function (event) {
+                //Manjea primero la generacion del token 
                 event.preventDefault();
-
+                // Solicita a Stripe que genere un token basado en los datos ingresados en el campo de tarjeta.
+                //Then maneja la respuesta
                 stripe.createToken(card).then(function (result) {
+                    //si hay error en la creacion de token muestra error
                     if (result.error) {
                         document.getElementById("card-errors").textContent = result.error.message;
                     } else {
