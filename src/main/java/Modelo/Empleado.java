@@ -1,0 +1,95 @@
+
+package Modelo;
+public class Empleado {
+    int id;
+    String dni;
+    String nom;
+    String tel;
+    int PagoDiario;
+    int diasTrabajo;
+    int sueldoSemanal;
+    String user;  
+   
+    
+    public Empleado(){
+        
+    }
+
+    public Empleado(int id, String dni, String nom, String tel, int PagoDiario,int diasTrabajo,int sueldoSemanal, String user) {
+        this.id = id;
+        this.dni = dni;
+        this.nom = nom;
+        this.tel = tel;
+        this.PagoDiario = PagoDiario;
+        this.diasTrabajo=diasTrabajo;
+        this.sueldoSemanal=sueldoSemanal;
+        this.user = user;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
+
+    public int getPagoDiario() {
+        return PagoDiario;
+    }
+
+    public void setPagoDiario(int PagoDiario) {
+        this.PagoDiario = PagoDiario;
+    }
+    
+    public int getDiasTrabajo() {
+    return diasTrabajo;
+}
+
+public void setDiasTrabajo(int diasTrabajo) {
+    this.diasTrabajo = diasTrabajo;
+}
+
+   public int getsueldoSemanal() {
+    return this.PagoDiario * this.diasTrabajo; 
+    //return sueldoSemanal;
+}
+
+public void setsueldoSemanal(int sueldoSemanal) {
+    this.sueldoSemanal = sueldoSemanal;
+}
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+    
+}
+

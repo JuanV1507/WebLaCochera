@@ -1,0 +1,82 @@
+/* Estilos para la tabla */
+.table-container {
+  background-color: #fff;
+  padding: 2em;
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px -1px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  text-align: left;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table thead {
+  background-color: #6a0dad; /* Morado elegante */
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.table th, .table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.table tbody tr {
+  transition: all 0.3s ease-in-out;
+}
+
+.table tbody tr:hover {
+  background-color: #f3e5f5; /* Suave lila */
+  transform: scale(1.02);
+}
+
+/* Estilos para los botones */
+.btn {
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s;
+  text-align: center;
+  display: inline-block;
+  min-width: 80px;
+}
+
+.btn-warning {
+  background-color: #ff9800;
+  color: white;
+  border: 2px solid transparent;
+}
+
+.btn-warning:hover {
+  background-color: white;
+  color: #ff9800;
+  border: 2px solid #ff9800;
+}
+
+.btn-danger {
+  background-color: #e91e63;
+  color: white;
+  border: 2px solid transparent;
+}
+
+.btn-danger:hover {
+  background-color: white;
+  color: #e91e63;
+  border: 2px solid #e91e63;
+}
+
+/* Alineación de los botones */
+.actions-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}

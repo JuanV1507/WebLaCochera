@@ -1,0 +1,327 @@
+/* From Uiverse.io by TCdesign-dev, adaptado a azul */
+#bottone1, .Contenedor-Botones button {
+  margin: 5px;
+  padding: 12.5px 30px;
+  border: none;
+  border-radius: 100px;
+  background-color: #2ba8fb;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1em;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  width: 100%;
+  height: auto;
+  box-shadow: 0 10px 15px -5px rgba(33, 115, 222, 0.4);
+  word-wrap: break-word;
+  white-space: normal;
+  line-height: 1.4;
+}
+
+#bottone1:hover, .Contenedor-Botones button:hover {
+  background-color: #6fc5ff;
+  box-shadow: 0 0 20px #6fc5ff50;
+  transform: scale(1.1);
+}
+
+#bottone1:active, .Contenedor-Botones button:active {
+  background-color: #3d94cf;
+  box-shadow: none;
+  transform: scale(0.98);
+  transition: all 0.25s;
+  -webkit-transition: all 0.25s;
+}
+
+.contenedor-servicio {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 15px;
+}
+
+.Contenedor-Botones {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 8px;
+  padding: 15px;
+  max-width: 100%;
+  max-height: 400px;
+  overflow: auto;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tabla-servicios {
+  width: 100%;
+  margin-top: 15px;
+}
+
+/* Adaptación al estilo moderno */
+.modern-form {
+  --primary: #3b82f6;
+  --primary-dark: #2563eb;
+  --primary-light: rgba(59, 130, 246, 0.1);
+  --success: #10b981;
+  --text-main: #1e293b;
+  --text-secondary: #64748b;
+  --bg-input: #f8fafc;
+
+  position: relative;
+  width: 300px;
+  padding: 24px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.05), inset 0 0 0 1px rgba(148, 163, 184, 0.1);
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.form-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-main);
+  margin: 0 0 24px;
+  text-align: center;
+  letter-spacing: -0.01em;
+}
+
+.input-group {
+  margin-bottom: 16px;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 8px 0; /* Ajuste del espaciado */
+}
+
+.form-input {
+  width: 100%;
+  height: 40px;
+  padding: 0 36px;
+  font-size: 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: var(--bg-input);
+  color: var(--text-main);
+  transition: all 0.2s ease;
+}
+
+.form-input {
+  padding-left: 40px; /* Espacio suficiente para el ícono */
+}
+
+.input-icon {
+  position: absolute;
+  left: 12px;
+  color: #64748b; /* Gris sutil para mantener un diseño limpio */
+}
+
+.submit-button {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  margin-top: 8px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.submit-button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25), 0 2px 4px rgba(59, 130, 246, 0.15);
+}
+
+.submit-button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.form-input:focus {
+  border-color: #93c5fd; /* Azul claro */
+  background-color: #f0f9ff; /* Fondo ligeramente azulado */
+}
+
+
+.form-input:not(:placeholder-shown):valid {
+  border-color: var(--success);
+}
+
+.form-input:not(:placeholder-shown):valid ~ .input-icon {
+  color: var(--success);
+}
+
+.form-input:not(:placeholder-shown):invalid {
+  border-color: #ef4444;
+  animation: shake 0.2s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-4px);
+  }
+  75% {
+    transform: translateX(4px);
+  }
+}
+
+.form {
+  background-color: white;
+  padding: 3.125em;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.75);
+}
+
+.signup {
+  color: red;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: block;
+  font-weight: bold;
+  font-size: x-large;
+  margin-bottom: 0.5em;
+}
+
+.form--input {
+  width: 100%;
+  margin-bottom: 1.25em;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  padding: 0.8em;
+  font-family: 'Inter', sans-serif;
+  outline: none;
+}
+
+.form--input:focus {
+  border: 1px solid #639;
+  outline: none;
+}
+
+textarea.form--input {
+  height: 100px;
+  resize: vertical;
+}
+
+.form--marketing {
+  display: flex;
+  margin-bottom: 1.25em;
+  align-items: center;
+}
+
+.form--marketing > input {
+  margin-right: 0.625em;
+}
+
+.form--marketing > label {
+  color: grey;
+}
+
+.checkbox, input[type="checkbox"] {
+  accent-color: #639;
+}
+
+.form--submit {
+  width: 50%;
+  padding: 0.625em;
+  border-radius: 5px;
+  color: white;
+  background-color: #639;
+  border: 1px dashed #639;
+  cursor: pointer;
+}
+
+.form--submit:hover {
+  color: #639;
+  background-color: white;
+  border: 1px dashed #639;
+  cursor: pointer;
+  transition: 0.5s;
+}
+/* Ajustes generales para evitar desplazamientos */
+.Contenedor-Botones {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 8px;
+  padding: 15px;
+  max-width: 100%;
+  max-height: 400px;
+  overflow-y: auto; /* Permite scroll solo si es necesario */
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Botones fijos sin moverse */
+#bottone1, .Contenedor-Botones button {
+  margin: 5px;
+  padding: 12.5px 30px;
+  border: none;
+  border-radius: 100px;
+  background-color: #2ba8fb;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1em;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.5s;
+  width: 100%; /* Se mantiene estable */
+  max-width: 250px; /* Evita botones gigantes en pantallas grandes */
+  height: auto;
+  box-shadow: 0 10px 15px -5px rgba(33, 115, 222, 0.4);
+  word-wrap: break-word;
+  white-space: normal;
+  line-height: 1.4;
+}
+
+@media (max-width: 480px) {
+  #bottone1, .Contenedor-Botones button {
+    padding: 8px 15px;
+    font-size: 0.8em;
+  }
+}
+
+  #bottone1, .Contenedor-Botones button {
+    font-size: 0.9em;
+    padding: 10px 20px;
+  }
+
+  .modern-form {
+    width: 90%; /* Formularios más compactos en tablets */
+    padding: 20px;
+  }
+
+
+@media (max-width: 480px) {
+  .Contenedor-Botones {
+    grid-template-columns: 1fr; /* Un botón por fila en celulares */
+    text-align: center;
+  }
+
+  #bottone1, .Contenedor-Botones button {
+    font-size: 0.85em;
+    padding: 10px;
+  }
+
+  .modern-form {
+    width: 95%; /* Formularios más compactos */
+    padding: 15px;
+  }
+}
+
