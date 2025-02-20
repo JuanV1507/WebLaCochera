@@ -11,7 +11,6 @@ import Modelo.VentaDAO;
 import com.stripe.exception.StripeException;
 import com.stripe.model.Charge;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -217,6 +216,17 @@ public class Controlador extends HttpServlet {
                 break;
 
             case "NuevaVenta":
+                  numeroserie = vdao.GenerarSerie();
+                if (numeroserie == null || numeroserie.isEmpty()) {
+                    numeroserie = "00000001";
+                    request.setAttribute("nserie", numeroserie);
+                } else {
+                    int Incrementar = Integer.parseInt(numeroserie);
+                    GenerarSerie gs = new GenerarSerie();
+                    numeroserie = gs.NumeroSerie(Incrementar);
+                    request.setAttribute("nserie", numeroserie);
+
+                }
                     HttpSession session = request.getSession();
                     lista = (List<Venta>) session.getAttribute("lista");
 
@@ -265,46 +275,38 @@ public class Controlador extends HttpServlet {
                                 
                             }
                             request.setAttribute("TotalPagar", TotalPagar);
+                            request.getRequestDispatcher("RegistrarVenta.jsp").forward(request, response);
                             break;
-                        case "GenerarVenta":
+                            
+                            case "GenerarVenta":
+                            v.setItem(item);
+                            v.setSerie(numeroserie);
+                            v.setFecha("2025-02-20");
                             v.setServicio(Servicio);
                             v.setTamaño(Tamaño);
                             v.setPlacas(Placas);
-                            v.setSerie(numeroserie);
                             v.setModelo(Modelo);
                             v.setLavador(Lavador);
                             v.setPrecio(Precio);
                             v.setCantidad(Cantidad);
+                            v.setServicioExtra(ServicioExtra);
                             v.setPrecioExtra(PrecioExtra);
                             v.setTotal(Total);
                             v.setComentario(Comentarios);
+                            int r = vdao.guardarVenta(v);
                             
-                        default:
-                            numeroserie=vdao.GenerarSerie();
-                            if (numeroserie==null || numeroserie.isEmpty()){
-                                numeroserie="00000001";
-                                request.setAttribute("nserie", numeroserie );
-                            }
-                            else {
-                               int Incrementar= Integer.parseInt(numeroserie);
-                               GenerarSerie gs= new GenerarSerie();
-                               numeroserie=gs.NumeroSerie(Incrementar);
-                                request.setAttribute("nserie", numeroserie);  
-                     
-                            } 
-                         
+                            default:
+                            
                             request.getRequestDispatcher("RegistrarVenta.jsp").forward(request, response);
                     }
                 }
-                request.getRequestDispatcher("RegistrarVenta.jsp").forward(request, response);
                 break;
-
- 
-            case "ReporteVentas":
+                case "ReporteVentas":
                 if (accion == null)
                 {
                     accion = "default"; // Acción predeterminada si no se especifica
                 }
+
                  request.getRequestDispatcher("ReporteVentas.jsp").forward(request, response);
                 break;
 
@@ -318,17 +320,17 @@ public class Controlador extends HttpServlet {
 
 
 
-        //  Declaro el metodo y le pongo 3 parametros la solicitud,la respuesta y el token de la API    
-         private void procesarPago(HttpServletRequest request, HttpServletResponse response, String stripeToken)
+
+       //  Declaro el metodo y le pongo 3 parametros la solicitud,la respuesta y el token de la API    
+    private void procesarPago(HttpServletRequest request, HttpServletResponse response, String stripeToken)
             throws IOException, ServletException {
 
         // Asegurar que Stripe está configurado
         StripeConfig.configure();
 
-        try
-        {
+        try {
             Map<String, Object> chargeParams = new HashMap<>();// Almaceno los parametros de la transaccion
-            chargeParams.put("amount", 2000);  
+            chargeParams.put("amount", 2000);
             chargeParams.put("currency", "mxn");
             chargeParams.put("source", stripeToken); //La tarjeta del cliente
             chargeParams.put("description", "Pago por productos");
@@ -337,8 +339,7 @@ public class Controlador extends HttpServlet {
             request.getSession().setAttribute("message", "Pago realizado con éxito");
             response.sendRedirect("success.jsp");
 
-        } catch (StripeException e)
-        {
+        } catch (StripeException e) {
             System.out.println("Error en Stripe: " + e.getMessage());
             request.getSession().setAttribute("message", "Error en Stripe: " + e.getMessage());
             response.sendRedirect("error.jsp");

@@ -1,82 +1,91 @@
-/* Estilos para la tabla */
+/* Estilos para el contenedor de la tabla */
 .table-container {
-  background-color: #fff;
-  padding: 2em;
-  border-radius: 10px;
-  box-shadow: 5px 5px 15px -1px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
+  background-color: #fff; /* Fondo blanco */
+  padding: 2em; /* Espaciado interno de 2em */
+  border-radius: 10px; /* Bordes redondeados de 10px */
+  box-shadow: 5px 5px 15px -1px rgba(0, 0, 0, 0.3); /* Sombra de caja sutil */
+  overflow: hidden; /* Ocultar desbordamiento */
 }
 
+/* Estilos para la tabla */
 .table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 16px;
-  font-family: 'Inter', sans-serif;
-  text-align: left;
-  border-radius: 10px;
-  overflow: hidden;
+  width: 100%; /* Ancho completo */
+  border-collapse: collapse; /* Colapsar bordes */
+  font-size: 16px; /* Tamaño de fuente de 16px */
+  font-family: 'Inter', sans-serif; /* Fuente Inter */
+  text-align: left; /* Alineación de texto a la izquierda */
+  border-radius: 10px; /* Bordes redondeados de 10px */
+  overflow: hidden; /* Ocultar desbordamiento */
 }
 
+/* Estilos para el encabezado de la tabla */
 .table thead {
   background-color: #6a0dad; /* Morado elegante */
-  color: white;
-  text-transform: uppercase;
-  font-weight: bold;
+  color: white; /* Texto blanco */
+  text-transform: uppercase; /* Transformar texto a mayúsculas */
+  font-weight: bold; /* Texto en negrita */
 }
 
+/* Estilos para las celdas del encabezado y el cuerpo de la tabla */
 .table th, .table td {
-  padding: 12px 15px;
-  border-bottom: 1px solid #ddd;
+  padding: 12px 15px; /* Espaciado interno de 12px arriba y abajo, 15px a los lados */
+  border-bottom: 1px solid #ddd; /* Borde inferior gris claro */
 }
 
+/* Estilos para las filas del cuerpo de la tabla */
 .table tbody tr {
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out; /* Transición suave para todos los cambios */
 }
 
+/* Estilos para las filas del cuerpo de la tabla al pasar el mouse por encima */
 .table tbody tr:hover {
   background-color: #f3e5f5; /* Suave lila */
-  transform: scale(1.02);
+  transform: scale(1.02); /* Escalado ligero */
 }
 
 /* Estilos para los botones */
 .btn {
-  padding: 8px 12px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: all 0.3s;
-  text-align: center;
-  display: inline-block;
-  min-width: 80px;
+  padding: 8px 12px; /* Espaciado interno de 8px arriba y abajo, 12px a los lados */
+  border-radius: 8px; /* Bordes redondeados de 8px */
+  text-decoration: none; /* Sin subrayado */
+  font-weight: bold; /* Texto en negrita */
+  transition: all 0.3s; /* Transición suave para todos los cambios */
+  text-align: center; /* Alineación de texto centrada */
+  display: inline-block; /* Mostrar como un bloque en línea */
+  min-width: 80px; /* Ancho mínimo de 80px */
 }
 
+/* Estilos para el botón de advertencia */
 .btn-warning {
-  background-color: #ff9800;
-  color: white;
-  border: 2px solid transparent;
+  background-color: #ff9800; /* Naranja */
+  color: white; /* Texto blanco */
+  border: 2px solid transparent; /* Borde transparente */
 }
 
+/* Estilos para el botón de advertencia al pasar el mouse por encima */
 .btn-warning:hover {
-  background-color: white;
-  color: #ff9800;
-  border: 2px solid #ff9800;
+  background-color: white; /* Fondo blanco */
+  color: #ff9800; /* Texto naranja */
+  border: 2px solid #ff9800; /* Borde naranja */
 }
 
+/* Estilos para el botón de peligro */
 .btn-danger {
-  background-color: #e91e63;
-  color: white;
-  border: 2px solid transparent;
+  background-color: #e91e63; /* Rosa fuerte */
+  color: white; /* Texto blanco */
+  border: 2px solid transparent; /* Borde transparente */
 }
 
+/* Estilos para el botón de peligro al pasar el mouse por encima */
 .btn-danger:hover {
-  background-color: white;
-  color: #e91e63;
-  border: 2px solid #e91e63;
+  background-color: white; /* Fondo blanco */
+  color: #e91e63; /* Texto rosa fuerte */
+  border: 2px solid #e91e63; /* Borde rosa fuerte */
 }
 
-/* Alineación de los botones */
+/* Estilos para la alineación de los botones */
 .actions-container {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
+  display: flex; /* Mostrar como flexbox */
+  justify-content: center; /* Centrar horizontalmente */
+  gap: 15px; /* Espacio entre elementos de 15px */
 }

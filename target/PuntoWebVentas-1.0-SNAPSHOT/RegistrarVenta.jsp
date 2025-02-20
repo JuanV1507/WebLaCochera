@@ -88,7 +88,7 @@
                                         <span class="input-icon"></span>
                                     </div>
                                 </div>
-                                 <div class="input-group">
+                                <div class="input-group">
                                     <div class="input-wrapper">
                                         <input type="text" name="Celular" class="form-input" placeholder="Celular">
                                         <span class="input-icon">👤</span>
@@ -96,7 +96,7 @@
                                 </div>
 
                                 <h4>Serv.Extra</h4>
-                                 <div class="input-group">
+                                <div class="input-group">
                                     <div class="input-wrapper">
                                         <select class="form-input" name="Numero">
                                             <option value="0">Servicios Adicionales</option>
@@ -107,14 +107,14 @@
                                         </select>
                                         <span class="input-icon">📏</span>
                                     </div>
-                                 </div>
-                                 <div class="input-group">
-                                     <div class="input-wrapper">
-                                         <input type="text" name="ServicioAdicional" class="form-input" placeholder="Serv.Adicional">
-                                         <span class="input-icon">➕</span>
-                                     </div>
-                                 </div>
-                                 <div class="input-group">
+                                </div>
+                                <div class="input-group">
+                                    <div class="input-wrapper">
+                                        <input type="text" name="ServicioAdicional" class="form-input" placeholder="Serv.Adicional">
+                                        <span class="input-icon">➕</span>
+                                    </div>
+                                </div>
+                                <div class="input-group">
                                     <div class="input-wrapper">
                                         <input type="text" name="PrecioAdicional" class="form-input" placeholder="Precio">
                                         <span class="input-icon">💰</span>
@@ -127,15 +127,15 @@
                                         <span class="input-icon">💬</span> 
                                     </div>
                                 </div>
-                                                             
+
                                 <div class="form-group">
-                                    <button type="submit" name="accion" value="Agregar" class="btn btn-outline-primary">Agregar</button>
+                                    <button type="submit" name="accion" value="Agregar" class="btn btn-info w-60 mb-3">Agregar</button>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
-        
+
 
                 <!-- Tabla de Ventas -->
                 <div class="col-md-8 col-sm-12">
@@ -150,6 +150,7 @@
                                 <table class="table table-hover">
                                     <thead>
                                         <tr class="text-center">
+
                                             <th>Nro</th>
                                             <th>SERVICIO</th>
                                             <th>TAMAÑO</th>
@@ -163,7 +164,7 @@
                                             <th>COMENTARIOS</th>
                                             <th>TOTAL</th>
                                             <th>ACCIONES</th>
-               
+
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -172,20 +173,21 @@
                                                 <td>${list.getItem()}</td>   
                                                 <td>${list.getServicio()}</td>
                                                 <td>${list.getTamaño()}</td>
-                                               <td>${list.getPlacas()}</td>
+                                                <td>${list.getPlacas()}</td>
                                                 <td>${list.getModelo()}</td>
                                                 <td>${list.getLavador()}</td>
                                                 <td>${list.getPrecio()}</td>
                                                 <td>${list.getCantidad()}</td>
-                                               <td>${list.getServicioExtra()}</td>
+                                                <td>${list.getServicioExtra()}</td>
                                                 <td>${list.getPrecioExtra()}</td>
                                                 <td>${list.getComentario()}</td>
-                                                 <td>${list.getTotal()}</td>
-                                                
-                                                <td class="d-flex">
-                                                    <a href="" class="btn btn-warning">Editar</a>
-                                                    <a class="btn btn-danger" style="margin-left: 10px">Delete</a>
-                                                </td
+                                                <td>${list.getTotal()}</td>
+                                                <td>
+                                                    <div style="display: flex; justify-content: space-between; gap: 10px;">  
+                                                        <a class="btn btn-warning" href="Controlador?menu=NuevaVenta&accion=Editar&id=${list.getItem()}">Editar</a>
+                                                        <a class="btn btn-danger" href="Controlador?menu=NuevaVenta&accion=Delete&id=${list.getItem()}">Delete</a>
+                                                    </div>
+                                                </td>
                                             </tr>
                                         </c:forEach>
                                     </tbody>
@@ -197,19 +199,6 @@
                                 <div class="col-md-6 col-sm-12 mb-2 mb-md-0">
                                     <a href="Controlador?menu=NuevaVenta&accion=GenerarVenta" class="btn btn-success">Generar Venta</a>
                                     <input type="submit" name="accion" value="Cancelar" class="btn btn-danger">
-                                    <h3>Realizar Pago</h3>
-                                    <form id="payment-form" action="Controlador?menu=NuevaVenta&accion=Pagar" method="post">
-                                        <label for="card-element">Información de la Tarjeta</label>
-                                        <div id="card-element"><!-- Stripe Elemento de Tarjeta --></div>
-
-                                        <!-- Mensaje de error -->
-                                        <div id="card-errors" role="alert"></div>
-
-                                        <button type="submit">Pagar</button>
-
-                                        <!-- Input oculto para almacenar el token -->
-                                        <input type="hidden" name="stripeToken" id="stripeToken">
-                                    </form>
                                 </div>
                                 <div class="col-md-6 col-sm-12 d-flex justify-content-between align-items-center">
                                     <label class="text-right">Total a Pagar</label>

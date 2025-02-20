@@ -18,7 +18,7 @@
             <div class="col-12 col-md-4">
                 <div class="card">
                     <div class="card-body">
-                        <form action="Controlador?menu=Empleado" method="POST">
+                        <form action="Controlador?menu=ReporteVentas" method="POST">
                             <div class="form-group mb-3">
                                <label>NroSerie</label>
                                <input type="text" value="${venta.getSerie()}" name="txtNroSerie" class="form-control">
@@ -86,6 +86,7 @@
                     <table class="table table-hover">
                         <thead>
                             <tr>
+                                <th>IdVenta</th>
                                 <th>NroSerie</th>
                                 <th>Fecha</th>
                                 <th>Servicio</th>
@@ -99,24 +100,31 @@
                                 <th>Cant.Adicional</th>
                                 <th>Pre.Adicional</th>
                                 <th>Comentarios</th>
+                                <th>Total</th>
                                 <th>ACCIONES</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <c:forEach var="em" items="${Empleados}">
+                            <c:forEach var="vt" items="${Ventas}">
                                 <tr>
-                                    <td>${em.getId()}</td>
-                                    <td>${em.getDni()}</td>
-                                    <td>${em.getNom()}</td>
-                                    <td>${em.getTel()}</td>
-                                    <td>${em.getPagoDiario()}</td>
-                                    <td>${em.getDiasTrabajo()}</td>
-                                    <td>${em.getsueldoSemanal()}</td>
-                                    <td>${em.getUser()}</td>
-                                    <td>
+                                    <td>${vt.getidVenta()}</td>
+                                    <td>${vt.getSerie()}</td>
+                                    <td>${vt.getFecha()}</td>
+                                    <td>${vt.getServicio()}</td>
+                                    <td>${vt.getTamaño()}</td>
+                                    <td>${vt.getPlacas()}</td>
+                                    <td>${vt.getModelo()}</td>
+                                    <td>${vt.getLavador()}</td>
+                                    <td>${vt.getPrecio()}</td>
+                                    <td>${vt.getCliente()}</td>
+                                    <td>${vt.getCelular()}</td>
+                                    <td>${vt.getCantidad()}</td>
+                                    <td>${vt.getPrecioExtra()}</td>
+                                    <td>${vt.getComentario()}</td>
+                                    <td>${vt.getTotal()}</td>
                                         <div style="display: flex; justify-content: space-between; gap: 10px;">
-                                            <a class="btn btn-warning" href="Controlador?menu=Empleado&accion=Editar&id=${em.getId()}">Editar</a>
-                                            <a class="btn btn-danger" href="Controlador?menu=Empleado&accion=Delete&id=${em.getId()}">Delete</a>
+                                            <a class="btn btn-warning" href="Controlador?menu=ReporteVentas&accion=Editar&id=${vt.getId()}">Editar</a>
+                                            <a class="btn btn-danger" href="Controlador?menu=ReporteVentas&accion=Delete&id=${vt.getId  ()}">Delete</a>
                                         </div>
                                     </td>
                                 </tr>

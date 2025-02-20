@@ -3,41 +3,45 @@ package Modelo;
 
 public class Venta {
  
-    int id;
+  int id;
     int item;
     String Serie;
+    String Fecha;
     String Servicio;
     String Tamaño;
-    String Descripcion;
-    String Placas;
-    String Modelo;
-    String Lavador;
-    int Precio;
-    String Comentario;
+   String Placas;
+   String Modelo;
+   String Lavador;
+   int Precio;
+   String Cliente;
+   String Celular;
     int Cantidad;
     String ServicioExtra;
     int PrecioExtra;
-    int total;
+    String Comentario;
+    int Total;
 
     public Venta() {
     }
 
-    public Venta(int id, int item, String Serie, String Servicio, String Tamaño, String Descripcion, String Placas, String Modelo, String Lavador, int Precio, String Comentario, int Cantidad, String ServicioExtra, int PrecioExtra, int total) {
+    public Venta(int id, int item, String Serie, String Fecha, String Servicio, String Tamaño, String Placas, String Modelo, String Lavador, int Precio, String Cliente, String Celular, int Cantidad,String ServicioExtra, int PrecioExtra, String Comentario, int Total) {
         this.id = id;
         this.item = item;
         this.Serie = Serie;
+        this.Fecha = Fecha;
         this.Servicio = Servicio;
         this.Tamaño = Tamaño;
-        this.Descripcion = Descripcion;
         this.Placas = Placas;
         this.Modelo = Modelo;
         this.Lavador = Lavador;
         this.Precio = Precio;
-        this.Comentario = Comentario;
+        this.Cliente = Cliente;
+        this.Celular = Celular;
         this.Cantidad = Cantidad;
-        this.ServicioExtra = ServicioExtra;
+        this.ServicioExtra=ServicioExtra;
         this.PrecioExtra = PrecioExtra;
-        this.total = total;
+        this.Comentario = Comentario;
+        this.Total = Total;
     }
 
     public int getId() {
@@ -64,6 +68,14 @@ public class Venta {
         this.Serie = Serie;
     }
 
+    public String getFecha() {
+        return Fecha;
+    }
+
+    public void setFecha(String Fecha) {
+        this.Fecha = Fecha;
+    }
+
     public String getServicio() {
         return Servicio;
     }
@@ -78,14 +90,6 @@ public class Venta {
 
     public void setTamaño(String Tamaño) {
         this.Tamaño = Tamaño;
-    }
-
-    public String getDescripcion() {
-        return Descripcion;
-    }
-
-    public void setDescripcion(String Descripcion) {
-        this.Descripcion = Descripcion;
     }
 
     public String getPlacas() {
@@ -120,12 +124,20 @@ public class Venta {
         this.Precio = Precio;
     }
 
-    public String getComentario() {
-        return Comentario;
+    public String getCliente() {
+        return Cliente;
     }
 
-    public void setComentario(String Comentario) {
-        this.Comentario = Comentario;
+    public void setCliente(String Cliente) {
+        this.Cliente = Cliente;
+    }
+
+    public String getCelular() {
+        return Celular;
+    }
+
+    public void setCelular(String Celular) {
+        this.Celular = Celular;
     }
 
     public int getCantidad() {
@@ -135,8 +147,8 @@ public class Venta {
     public void setCantidad(int Cantidad) {
         this.Cantidad = Cantidad;
     }
-
-    public String getServicioExtra() {
+    
+     public String getServicioExtra() {
         return ServicioExtra;
     }
 
@@ -152,13 +164,19 @@ public class Venta {
         this.PrecioExtra = PrecioExtra;
     }
 
-    public int getTotal() {
-        return total;
+    public String getComentario() {
+        return Comentario;
     }
 
-    public void setTotal(int total) {
-        this.total = total;
+    public void setComentario(String Comentario) {
+        this.Comentario = Comentario;
+    }
+
+    public int getTotal() {
+        return Total;
+    }
+
+    public void setTotal(int Total) {
+        this.Total = Total;
     }
 }
-
-    
