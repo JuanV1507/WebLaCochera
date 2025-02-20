@@ -1,8 +1,3 @@
-<%-- 
-    Document   : ReporteVentas
-    Created on : 10 feb 2025, 16:13:02
-    Author     : USUARIO
---%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -25,37 +20,58 @@
                     <div class="card-body">
                         <form action="Controlador?menu=Empleado" method="POST">
                             <div class="form-group mb-3">
-                                <label>NumSerie</label>
-                                <input type="text" value="${venta.getSerie()}" name="txtSerie" class="form-control">
-                            </div>
-                            <div class="form-group mb-3">
-                                <label>Fecha</label>
-                                <input type="text" value="${empleado.getNom()}" name="txtNombres" class="form-control">
-                            </div>
-                            <div class="form-group mb-3">
-                                <label>Servicio</label>
-                                <input type="text" name="txtTel" value="${empleado.getTel()}" class="form-control">
-                            </div>
-                            <div class="form-group mb-3">
-                                <label for="txtPagoDiario">Tamaño</label>
-                                <input type="number" name="txtPagoDiario" value="${empleado.getPagoDiario()}" class="form-control">
-                            </div>
-                            <div class="form-group mb-3">
-                                <label>Descripcion</label>
-                                <input type="number" name="txtDiasTrabajo" value="${empleado.getDiasTrabajo()}" class="form-control">
-                            </div>
-                            <div class="form-group mb-3">
-                                <label>Placas</label>
-                                <input type="text" value="${empleado.getUser()}" name="txtUsuario" class="form-control">
-                            </div>
-                            <div class="form-group mb-3">
-                                <label>Precio</label>
-                                <input type="text" value="${empleado.getUser()}" name="txtUsuario" class="form-control">
-                            </div>
-                            <div class="form-group mb-3">
-                                <label>Lavador</label>
-                                <input type="text" value="${empleado.getUser()}" name="txtUsuario" class="form-control">
-                            </div>
+                               <label>NroSerie</label>
+                               <input type="text" value="${venta.getSerie()}" name="txtNroSerie" class="form-control">
+                           </div>
+                           <div class="form-group mb-3">
+                               <label>Fecha</label>
+                               <input type="text" value="${venta.getFecha()}" name="txtFecha" class="form-control">
+                           </div>
+                           <div class="form-group mb-3">
+                               <label>Servicio</label>
+                               <input type="text" name="txtServicio" value="${venta.getServicio()}" class="form-control">
+                           </div>
+                           <div class="form-group mb-3">
+                               <label>Tamaño</label>
+                               <input type="text" name="txtTamaño" value="${venta.getTamaño()}" class="form-control">
+                           </div>
+                           <div class="form-group mb-3">
+                               <label>Placas</label>
+                               <input type="text" value="${venta.getPlacas()}" name="txtPlacas" class="form-control">
+                           </div>
+                           <div class="form-group mb-3">
+                               <label>Modelo</label>
+                               <input type="text" value="${venta.getModelo()}" name="txtModelo" class="form-control">
+                           </div>
+                           <div class="form-group mb-3">
+                               <label>Lavador</label>
+                               <input type="text" value="${venta.getLavador()}" name="txtLavador" class="form-control">
+                           </div>
+                           <div class="form-group mb-3">
+                               <label>Precio</label>
+                               <input type="text" value="${venta.getPrecio()}" name="txtPrecio" class="form-control">
+                           </div>
+                           <div class="form-group mb-3">
+                               <label>Cliente</label>
+                               <input type="text" value="${venta.getCliente()}" name="txtCliente" class="form-control">
+                           </div>
+                           <div class="form-group mb-3">
+                               <label>Celular</label>
+                               <input type="text" value="${venta.getCelular()}" name="txtCelular" class="form-control">
+                           </div>
+                           <div class="form-group mb-3">
+                               <label>Cant. Adicional</label>
+                               <input type="number" value="${venta.getCantidadAdicional()}" name="txtCantidadAdicional" class="form-control">
+                           </div>
+                           <div class="form-group mb-3">
+                               <label>Pre. Adicional</label>
+                               <input type="text" value="${venta.getPrecioAdicional()}" name="txtPrecioAdicional" class="form-control">
+                           </div>
+                           <div class="form-group mb-3">
+                               <label>Comentarios</label>
+                               <textarea name="txtComentarios" class="form-control">${venta.getComentarios()}</textarea>
+                           </div>
+
                             <input type="submit" name="accion" value="Agregar" class="btn btn-info w-100 mb-3">
                             <input type="submit" name="accion" value="Actualizar" class="btn btn-success w-100">
                         </form>
@@ -74,10 +90,15 @@
                                 <th>Fecha</th>
                                 <th>Servicio</th>
                                 <th>Tamaño</th>
-                                <th>Descripcion</th>
                                 <th>Placas</th>
-                                <th>Precio</th>
+                                <th>Modelo</th> 
                                 <th>Lavador</th>
+                                <th>Precio</th>
+                                <th>Cliente</th>
+                                <th>Celular</th>
+                                <th>Cant.Adicional</th>
+                                <th>Pre.Adicional</th>
+                                <th>Comentarios</th>
                                 <th>ACCIONES</th>
                             </tr>
                         </thead>

@@ -11,6 +11,7 @@ import Modelo.VentaDAO;
 import com.stripe.exception.StripeException;
 import com.stripe.model.Charge;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -35,16 +36,14 @@ public class Controlador extends HttpServlet {
     Venta v = new Venta();
     List<Venta> lista = new ArrayList<>();
     int item;
-    int cod;
     String Servicio;
     String Tamaño;
-    String Descripcion;
     String Placas;
     String Modelo;
     String Lavador;
     int Precio;
     int Cantidad;
-    int ServicioExtra;
+    String ServicioExtra;
     int PrecioExtra;
     String Comentarios;
     int Total;
@@ -229,13 +228,7 @@ public class Controlador extends HttpServlet {
                         request.getRequestDispatcher("RegistrarVenta.jsp").forward(request, response);
                     } else {
                         switch (accion) {
-                            case "ListarServicios":
-                                List<Producto> listaServicios = pdao.listar();
-                                request.setAttribute("Servicios", listaServicios);
-                                request.getRequestDispatcher("registrarventa.jsp").forward(request, response);
-                                break;
-
-           
+                               
                         case "Agregar":
                             TotalPagar=0;
                             item = item + 1;
@@ -246,6 +239,7 @@ public class Controlador extends HttpServlet {
                             Lavador = request.getParameter("Lavador");
                             Precio = Integer.parseInt(request.getParameter("Precio"));
                             Cantidad=Integer.parseInt(request.getParameter("Numero"));
+                            ServicioExtra=request.getParameter("ServicioAdicional");
                             PrecioExtra=Integer.parseInt(request.getParameter("PrecioAdicional"));
                             Comentarios = request.getParameter("Comentario");
                             Total=Precio+PrecioExtra;
@@ -259,6 +253,7 @@ public class Controlador extends HttpServlet {
                             v.setLavador(Lavador);
                             v.setPrecio(Precio);
                             v.setCantidad(Cantidad);
+                            v.setServicioExtra(ServicioExtra);
                             v.setPrecioExtra(PrecioExtra);
                             v.setTotal(Total);
                             v.setComentario(Comentarios);
@@ -283,10 +278,10 @@ public class Controlador extends HttpServlet {
                             v.setPrecioExtra(PrecioExtra);
                             v.setTotal(Total);
                             v.setComentario(Comentarios);
-                            //int r=vdao.
+                            
                         default:
-                            numeroserie= vdao.GenerarSerie();
-                            if (numeroserie==null){
+                            numeroserie=vdao.GenerarSerie();
+                            if (numeroserie==null || numeroserie.isEmpty()){
                                 numeroserie="00000001";
                                 request.setAttribute("nserie", numeroserie );
                             }
@@ -296,8 +291,8 @@ public class Controlador extends HttpServlet {
                                numeroserie=gs.NumeroSerie(Incrementar);
                                 request.setAttribute("nserie", numeroserie);  
                      
-                            }
-                                                   
+                            } 
+                         
                             request.getRequestDispatcher("RegistrarVenta.jsp").forward(request, response);
                     }
                 }
@@ -344,7 +339,6 @@ public class Controlador extends HttpServlet {
 
         } catch (StripeException e)
         {
-            e.printStackTrace();
             System.out.println("Error en Stripe: " + e.getMessage());
             request.getSession().setAttribute("message", "Error en Stripe: " + e.getMessage());
             response.sendRedirect("error.jsp");

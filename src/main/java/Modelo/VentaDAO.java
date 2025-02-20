@@ -33,4 +33,23 @@ public class VentaDAO {
        return NumeroSerie;
     }
     
+     public List<Venta> listar() {
+    String sql = "SELECT * FROM ventas";
+    List<Venta> lista = new ArrayList<>();
+    try {
+        con = cn.Conexion();
+        ps = con.prepareCall(sql);
+        rs = ps.executeQuery();
+        while (rs.next()) {
+            Venta vt = new Venta();
+            vt.setId(rs.getInt("idVenta"));
+            vt.setSerie(rs.getString("NroSerie"));
+           
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    return lista;
+}
+
 }

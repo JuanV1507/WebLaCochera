@@ -1,7 +1,3 @@
- /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Configuracion;
 public class GenerarSerie {
     int dato;
@@ -27,7 +23,6 @@ public class GenerarSerie {
         } else {
             numero = "00000000" + this.dato;
         }
-
         return numero;
     }
 }

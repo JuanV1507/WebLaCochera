@@ -88,6 +88,12 @@
                                         <span class="input-icon"></span>
                                     </div>
                                 </div>
+                                 <div class="input-group">
+                                    <div class="input-wrapper">
+                                        <input type="text" name="Celular" class="form-input" placeholder="Celular">
+                                        <span class="input-icon">👤</span>
+                                    </div>
+                                </div>
 
                                 <h4>Serv.Extra</h4>
                                  <div class="input-group">
@@ -101,13 +107,13 @@
                                         </select>
                                         <span class="input-icon">📏</span>
                                     </div>
-                                </div>
-                                <div class="input-group">
-                                    <div class="input-wrapper">
-                                        <input type="text" name="ServicioAdicional" class="form-input" placeholder="Serv.Adicional">
-                                        <span class="input-icon">➕</span>
-                                    </div>
-                                </div>
+                                 </div>
+                                 <div class="input-group">
+                                     <div class="input-wrapper">
+                                         <input type="text" name="ServicioAdicional" class="form-input" placeholder="Serv.Adicional">
+                                         <span class="input-icon">➕</span>
+                                     </div>
+                                 </div>
                                  <div class="input-group">
                                     <div class="input-wrapper">
                                         <input type="text" name="PrecioAdicional" class="form-input" placeholder="Precio">
@@ -152,6 +158,7 @@
                                             <th>LAVADOR</th>
                                             <th>PRECIO</th>
                                             <th>CANT.ADICIONAL</th>
+                                            <th>SERV.ADICIONAL</th>
                                             <th>PRECIO ADICIONAL</th>
                                             <th>COMENTARIOS</th>
                                             <th>TOTAL</th>
@@ -170,6 +177,7 @@
                                                 <td>${list.getLavador()}</td>
                                                 <td>${list.getPrecio()}</td>
                                                 <td>${list.getCantidad()}</td>
+                                               <td>${list.getServicioExtra()}</td>
                                                 <td>${list.getPrecioExtra()}</td>
                                                 <td>${list.getComentario()}</td>
                                                  <td>${list.getTotal()}</td>
@@ -205,7 +213,7 @@
                                 </div>
                                 <div class="col-md-6 col-sm-12 d-flex justify-content-between align-items-center">
                                     <label class="text-right">Total a Pagar</label>
-                                    <input type="text" name="txtTotal" value="S/.${TotalPagar}0" class="form-control text-center font-weight-bold" style="font-size: 18px; max-width: 200px;">
+                                    <input type="text" name="txtTotal" value="$${TotalPagar}" class="form-control text-center font-weight-bold" style="font-size: 18px; max-width: 200px;">
                                 </div>
                             </div>
                         </div>
@@ -243,12 +251,7 @@
                     }
                 });
             });
-                
-   
-
-
-
-        </script>
+         </script>
 
         <!-- Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
