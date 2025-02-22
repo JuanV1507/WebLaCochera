@@ -158,6 +158,8 @@
                                             <th>MODELO</th>
                                             <th>LAVADOR</th>
                                             <th>PRECIO</th>
+                                            <th>CLIENTE</th>
+                                            <th>CELULAR</th>
                                             <th>CANT.ADICIONAL</th>
                                             <th>SERV.ADICIONAL</th>
                                             <th>PRECIO ADICIONAL</th>
@@ -177,6 +179,8 @@
                                                 <td>${list.getModelo()}</td>
                                                 <td>${list.getLavador()}</td>
                                                 <td>${list.getPrecio()}</td>
+                                                <td>${list.getCliente()}</td>
+                                                <td>${list.getCelular()}</td>
                                                 <td>${list.getCantidad()}</td>
                                                 <td>${list.getServicioExtra()}</td>
                                                 <td>${list.getPrecioExtra()}</td>
@@ -184,8 +188,8 @@
                                                 <td>${list.getTotal()}</td>
                                                 <td>
                                                     <div style="display: flex; justify-content: space-between; gap: 10px;">  
-                                                        <a class="btn btn-warning" href="Controlador?menu=NuevaVenta&accion=Editar&id=${list.getItem()}">Editar</a>
-                                                        <a class="btn btn-danger" href="Controlador?menu=NuevaVenta&accion=Delete&id=${list.getItem()}">Delete</a>
+                                                        <a class="btn btn-warning" href="Controlador?menu=NuevaVenta&accion=Editar&id=${list.getId()}">Editar</a>
+                                                        <a class="btn btn-danger" href="Controlador?menu=NuevaVenta&accion=Delete&id=${list.getId()}">Delete</a>
                                                     </div>
                                                 </td>
                                             </tr>

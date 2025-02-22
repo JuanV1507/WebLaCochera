@@ -48,6 +48,8 @@ public class Controlador extends HttpServlet {
     int Total;
     int TotalPagar;
     String numeroserie;
+    String Cliente;
+    String Celular;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -216,18 +218,19 @@ public class Controlador extends HttpServlet {
                 break;
 
             case "NuevaVenta":
-                  numeroserie = vdao.GenerarSerie();
                 if (numeroserie == null || numeroserie.isEmpty()) {
                     numeroserie = "00000001";
-                    request.setAttribute("nserie", numeroserie);
                 } else {
-                    int Incrementar = Integer.parseInt(numeroserie);
-                    GenerarSerie gs = new GenerarSerie();
-                    numeroserie = gs.NumeroSerie(Incrementar);
-                    request.setAttribute("nserie", numeroserie);
+                    // Extraer solo la parte numérica si NumSerie tiene prefijos
+                    numeroserie = numeroserie.replaceAll("[^0-9]", ""); // Elimina letras
+                    int incrementar = Integer.parseInt(numeroserie) + 1;
 
+                    // Formatear con ceros a la izquierda
+                    numeroserie = String.format("%08d", incrementar);
                 }
-                    HttpSession session = request.getSession();
+                request.setAttribute("nserie", numeroserie);
+
+                HttpSession session = request.getSession();
                     lista = (List<Venta>) session.getAttribute("lista");
 
                     if (lista == null) { // Si la lista no está en la sesión, inicialízala
@@ -248,6 +251,8 @@ public class Controlador extends HttpServlet {
                             Modelo = request.getParameter("Modelo");
                             Lavador = request.getParameter("Lavador");
                             Precio = Integer.parseInt(request.getParameter("Precio"));
+                            Cliente= request.getParameter("Cliente");
+                            Celular= request.getParameter("Celular");
                             Cantidad=Integer.parseInt(request.getParameter("Numero"));
                             ServicioExtra=request.getParameter("ServicioAdicional");
                             PrecioExtra=Integer.parseInt(request.getParameter("PrecioAdicional"));
@@ -262,6 +267,8 @@ public class Controlador extends HttpServlet {
                             v.setModelo(Modelo);
                             v.setLavador(Lavador);
                             v.setPrecio(Precio);
+                            v.setCliente(Cliente);
+                            v.setCelular(Celular);
                             v.setCantidad(Cantidad);
                             v.setServicioExtra(ServicioExtra);
                             v.setPrecioExtra(PrecioExtra);
@@ -288,15 +295,18 @@ public class Controlador extends HttpServlet {
                             v.setModelo(Modelo);
                             v.setLavador(Lavador);
                             v.setPrecio(Precio);
+                            v.setCliente(Cliente);
+                            v.setCelular(Celular);
                             v.setCantidad(Cantidad);
                             v.setServicioExtra(ServicioExtra);
                             v.setPrecioExtra(PrecioExtra);
                             v.setTotal(Total);
                             v.setComentario(Comentarios);
+                            
                             int r = vdao.guardarVenta(v);
                             
                             default:
-                            
+                            request.setAttribute("TotalPagar", TotalPagar);
                             request.getRequestDispatcher("RegistrarVenta.jsp").forward(request, response);
                     }
                 }
@@ -306,6 +316,12 @@ public class Controlador extends HttpServlet {
                 {
                     accion = "default"; // Acción predeterminada si no se especifica
                 }
+                    switch(accion){
+                        case "Listar":
+                            List<Venta> lista=vdao.listar();
+                            request.setAttribute("Ventas", lista);
+                            break;
+                    }
 
                  request.getRequestDispatcher("ReporteVentas.jsp").forward(request, response);
                 break;

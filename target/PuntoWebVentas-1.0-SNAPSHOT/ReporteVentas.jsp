@@ -15,7 +15,7 @@
         <!-- Fila para formulario y tabla -->
         <div class="row g-3">
             <!-- Columna para el formulario -->
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-md-2">
                 <div class="card">
                     <div class="card-body">
                         <form action="Controlador?menu=ReporteVentas" method="POST">
@@ -81,7 +81,7 @@
                             
 
             <!-- Columna para la tabla -->
-            <div class="col-12 col-md-8">
+            <div class="col-12 col-md-10">
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead>
@@ -104,10 +104,10 @@
                                 <th>ACCIONES</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody> 
                             <c:forEach var="vt" items="${Ventas}">
                                 <tr>
-                                    <td>${vt.getidVenta()}</td>
+                                    <td>${vt.getId()}</td>
                                     <td>${vt.getSerie()}</td>
                                     <td>${vt.getFecha()}</td>
                                     <td>${vt.getServicio()}</td>
@@ -122,6 +122,7 @@
                                     <td>${vt.getPrecioExtra()}</td>
                                     <td>${vt.getComentario()}</td>
                                     <td>${vt.getTotal()}</td>
+                                    <td>
                                         <div style="display: flex; justify-content: space-between; gap: 10px;">
                                             <a class="btn btn-warning" href="Controlador?menu=ReporteVentas&accion=Editar&id=${vt.getId()}">Editar</a>
                                             <a class="btn btn-danger" href="Controlador?menu=ReporteVentas&accion=Delete&id=${vt.getId  ()}">Delete</a>
@@ -136,5 +137,4 @@
         </div>
     </div>
 </body>
-    </body>
 </html>

@@ -17,22 +17,23 @@ public class VentaDAO {
     PreparedStatement ps;
     ResultSet rs;
     int r;
-    
-    public String GenerarSerie (){
-       String NumeroSerie="";
-       String sql="select max(NumSerie)* from ventas";
-       try{
-           con=cn.Conexion();
-           ps=con.prepareStatement(sql);
-           rs=ps.executeQuery();
-           while (rs.next()){
-               NumeroSerie=rs.getString(1);
-           }
-       } catch (Exception e){
-           
-       }
-       return NumeroSerie;
+ 
+    public String GenerarSerie() {
+        String NumeroSerie = "";
+        String sql = "SELECT MAX(NumSerie) FROM ventas";
+        try {
+            con = cn.Conexion();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            if (rs.next()) { // Solo entra si hay resultados
+                NumeroSerie = rs.getString(1);
+            }
+        } catch (Exception e) {
+            e.printStackTrace(); // Muestra el error en la consola
+        }
+        return NumeroSerie;
     }
+
     
     public List<Venta> listar() {
     String sql = "SELECT * FROM ventas";
@@ -68,7 +69,7 @@ public class VentaDAO {
 }
     
     public int guardarVenta(Venta vt) {
-    String sql = "insert int ventas (NroSerie, Fecha, Servicio, Tamano, Placas, Modelo, Lavador, Precio, Cliente, Celular, CantidadAdicional, PrecioAdicional, Comentarios, Total) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    String sql = "INSERT INTO ventas (NroSerie, Fecha, Servicio, Tamano, Placas, Modelo, Lavador, Precio, Cliente, Celular, CantidadAdicional, PrecioAdicional, Comentarios, Total) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     try {
         con = cn.Conexion();
         ps = con.prepareStatement(sql);
