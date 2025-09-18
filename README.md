@@ -26,8 +26,13 @@ Permite registrar Personal, controlar ventas, generar reportes, ofreciendo una i
 ### Pantalla de inicio de sesión  
 [Login]
 <img width="1912" height="986" alt="image" src="https://github.com/user-attachments/assets/4a82aa1f-1c95-4c5b-b4dc-8cd88a7b4656" />
+
 Inicio para los modulos
 <img width="1907" height="974" alt="image" src="https://github.com/user-attachments/assets/675bce35-66a2-480d-a184-604f5ede4672" />
+
+## Ticket de venta
+<img width="1906" height="890" alt="image" src="https://github.com/user-attachments/assets/c0396552-a4d1-4277-823b-ae11fb157777" />
+
 
 ### Modulo de empleados
 <img width="1907" height="973" alt="image" src="https://github.com/user-attachments/assets/2a2c1ac6-5d7d-4b94-984e-6ca4f1de85b6" />
